@@ -1,5 +1,5 @@
 // Example Album
- var albumPicasso = {
+  var albumPicasso = {
      title: 'The Colors',
      artist: 'Pablo Picasso',
      label: 'Cubism',
@@ -15,7 +15,7 @@
  };
 
  // Another Example Album
- var albumMarconi = {
+  var albumMarconi = {
      title: 'The Telephone',
      artist: 'Guglielmo Marconi',
      label: 'EM',
@@ -30,6 +30,25 @@
      ]
  };
 
+// my album
+
+  var albumMouseRat = {
+     title: 'The Pit',
+     artist: 'Mouse Rat',
+     label: 'EM',
+     year: '1909',
+     albumArtUrl: 'assets/images/album_covers/20.png',
+     songs: [
+         { title: 'rectangle', duration: '1:01' },
+         { title: 'pizza plant', duration: '5:01' },
+         { title: 'america', duration: '3:21'},
+         { title: 'rectangle', duration: '3:14' },
+         { title: 'butt', duration: '2:15'}
+     ]
+ };
+
+
+
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -41,6 +60,8 @@
 
      return template;
  };
+
+//
 
  var setCurrentAlbum = function(album) {
      // #1
@@ -68,3 +89,24 @@
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
  };
+
+
+
+var newAlbum = document.getElementsByClassName('album-cover-art')[0];
+
+var currentAlbum = albumPicasso
+
+newAlbum.addEventListener("click", function(){
+    if(currentAlbum === albumPicasso) {
+      setCurrentAlbum(albumMarconi)
+      currentAlbum = albumMarconi
+    }
+    else if(currentAlbum === albumMarconi) {
+      setCurrentAlbum(albumMouseRat)
+      currentAlbum = albumMouseRat
+    }
+    else if(currentAlbum === albumMouseRat) {
+      setCurrentAlbum(albumPicasso)
+      currentAlbum = albumPicasso
+    }
+})
