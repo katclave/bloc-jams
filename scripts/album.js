@@ -66,15 +66,34 @@
  };
 
 
- var findParentByClassName = function(element, targetClass) {
-    if (element) {
-        var currentParent = element.parentElement;
-        while (currentParent.className !== targetClass && currentParent.className !== null) {
-            currentParent = currentParent.parentElement;
-        }
-        return currentParent;
+//  var findParentByClassName = function(element, targetClass) {
+//     if (element) {
+//         var currentParent = element.parentElement;
+//         while (currentParent.className !== targetClass && currentParent.className !== null) {
+//             currentParent = currentParent.parentElement;
+//         }
+//         return currentParent;
+//     }
+// };
+
+// Assignment DOM play/pause part 2 :
+
+var findParentByClassName = function(element, targetClass) {
+  var currentParent = element.parentElement;
+    if(currentParent === null) {
+    console.log("No parent found")
+    }
+    else if (currentParent.className !== targetClass) {
+    console.log("No parent found with that class name")
+    }
+    else {
+      while (currentParent.className!== targetClass && currentParent.className !== null) {
+        currentParent = currentParent.parentElement;
+      }
+      return currentParent;
     }
 };
+
 
 var getSongItem = function(element) {
     switch (element.className) {
@@ -132,7 +151,7 @@ var currentlyPlayingSong = null;
       songListContainer.addEventListener('mouseover', function(event) {
         // Only target individual song rows during event delegation
         if (event.target.parentElement.className === 'album-view-song-item') {
-                   
+
            var songItem = getSongItem(event.target);
 
             if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
