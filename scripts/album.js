@@ -74,25 +74,30 @@
 //         }
 //         return currentParent;
 //     }
+//
 // };
 
-// Assignment DOM play/pause part 2 :
+///////// ASSIGNMENT: PAUSE/ PLAY 2 REVISED 
 
 var findParentByClassName = function(element, targetClass) {
   var currentParent = element.parentElement;
-    if(currentParent === null) {
-    console.log("No parent found")
-    }
-    else if (currentParent.className !== targetClass) {
-    console.log("No parent found with that class name")
-    }
-    else {
-      while (currentParent.className!== targetClass && currentParent.className !== null) {
-        currentParent = currentParent.parentElement;
-      }
-      return currentParent;
-    }
+   if (element) {
+       if (currentParent === null) {
+         console.log("No parent found");
+       }
+       while (currentParent.className !== targetClass && currentParent.className !== null) {
+           currentParent = currentParent.parentElement;
+       }
+       if (currentParent.className === targetClass) {
+         return currentParent;
+       }
+       else {
+         console.log("No parent found with that class name");
+     }
+ }
+
 };
+
 
 
 var getSongItem = function(element) {
