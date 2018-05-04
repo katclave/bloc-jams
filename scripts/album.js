@@ -6,7 +6,7 @@
 var setSong = function(songNumber) {
   if (currentSoundFile) {
          currentSoundFile.stop();
-     } 
+     }
 
   currentlyPlayingSongNumber = parseInt(songNumber);
   currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
@@ -186,6 +186,8 @@ var previousSong = function() {
 
      $('.main-controls .play-pause').html(playerBarPauseButton);
  };
+
+
 
 // Album button templates
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
