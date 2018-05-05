@@ -2,11 +2,13 @@
 
 
 // this function updates currentlyPlayingSongNumber and currentSongFromAlbum simultaneously
+//var skipSongButton = document.getElementByClassName('ion-skip-forward')
+//console.log(skipSongButton)
 
 var setSong = function(songNumber) {
   if (currentSoundFile) {
          currentSoundFile.stop();
-     } 
+     }
 
   currentlyPlayingSongNumber = parseInt(songNumber);
   currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
@@ -20,6 +22,11 @@ var setSong = function(songNumber) {
      setVolume(currentVolume);
 };
 
+var setVolume = function(volume){
+  if(currentSoundFile){
+    currentSoundFile.setVolume(volume);
+  }
+};
 
 var getSongNumberCell = function(number) {
   return $('.song-item-number[data-song-number="' + number + '"]');
@@ -124,6 +131,7 @@ var getSongNumberCell = function(number) {
 };
 
 var nextSong = function() {
+  console.log('here i am')
     var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
     // Note that we're _incrementing_ the song here
     currentSongIndex++;
