@@ -1,10 +1,4 @@
 
-
-
-// this function updates currentlyPlayingSongNumber and currentSongFromAlbum simultaneously
-//var skipSongButton = document.getElementByClassName('ion-skip-forward')
-//console.log(skipSongButton)
-
 var setSong = function(songNumber) {
   if (currentSoundFile) {
          currentSoundFile.stop();
