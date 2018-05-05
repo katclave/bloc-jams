@@ -1,5 +1,8 @@
 
 
+
+// this function updates currentlyPlayingSongNumber and currentSongFromAlbum simultaneously
+
 var setSong = function(songNumber) {
   if (currentSoundFile) {
          currentSoundFile.stop();
