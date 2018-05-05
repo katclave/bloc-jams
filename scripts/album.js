@@ -1,8 +1,5 @@
 
 
-
-// this function updates currentlyPlayingSongNumber and currentSongFromAlbum simultaneously
-
 var setSong = function(songNumber) {
   if (currentSoundFile) {
          currentSoundFile.stop();
@@ -21,7 +18,7 @@ var setSong = function(songNumber) {
 };
 
 
-var getSongNumberCell = function(number) {
+  var getSongNumberCell = function(number) {
   return $('.song-item-number[data-song-number="' + number + '"]');
 }
 
@@ -186,8 +183,6 @@ var previousSong = function() {
 
      $('.main-controls .play-pause').html(playerBarPauseButton);
  };
-
-
 
 // Album button templates
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
